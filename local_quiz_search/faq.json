@@ -1,0 +1,27 @@
+[
+  {
+    "id": "q1",
+    "question": "How do I improve at science trivia?",
+    "answer": "Practice category-focused quizzes and review explanations after each attempt."
+  },
+  {
+    "id": "q2",
+    "question": "What is the best strategy for timed quiz rounds?",
+    "answer": "Skip hard questions first, answer confident ones quickly, then return to unresolved items."
+  },
+  {
+    "id": "q3",
+    "question": "How can I remember world capitals for quiz games?",
+    "answer": "Use spaced repetition flashcards and group capitals by region."
+  },
+  {
+    "id": "q4",
+    "question": "How do I avoid repeated mistakes in trivia?",
+    "answer": "Track missed questions in a notebook and revisit weak topics each week."
+  },
+  {
+    "id": "q5",
+    "question": "What should beginners study for general knowledge quizzes?",
+    "answer": "Start with history, geography, science basics, and common literature references."
+  }
+]
