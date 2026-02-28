@@ -66,7 +66,3 @@ All FAQ entries are fictional/synthetic.
 
 - Small corpus means limited lexical coverage.
 - Add typo tolerance, synonym expansion, or snippet extraction.
-
-## Disclosure
-
-This is a retrospective educational addition created now. Historical author/committer dates may be used for commit metadata and do not indicate the actual execution date of this work.
