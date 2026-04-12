@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 import unittest
 
-from bm25 import search_faq
+from bm25 import highlight_overlap, search_faq
 
 
 class BM25FaqTests(unittest.TestCase):
@@ -17,6 +17,12 @@ class BM25FaqTests(unittest.TestCase):
         data = json.loads((base / "faq.json").read_text(encoding="utf-8"))
         results = search_faq(data, "trivia mistakes", top_k=2)
         self.assertEqual(len(results), 2)
+
+    def test_highlight_overlap(self) -> None:
+        base = Path(__file__).resolve().parents[1]
+        data = json.loads((base / "faq.json").read_text(encoding="utf-8"))
+        overlaps = highlight_overlap(data[0], "science trivia")
+        self.assertIn("science", overlaps)
 
 
 if __name__ == "__main__":

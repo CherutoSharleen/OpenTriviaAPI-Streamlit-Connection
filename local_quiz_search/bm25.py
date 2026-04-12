@@ -53,3 +53,9 @@ def search_faq(documents: list[dict[str, str]], query: str, top_k: int = 3) -> l
         scored.append((doc, score))
     scored.sort(key=lambda pair: pair[1], reverse=True)
     return scored[:top_k]
+
+
+def highlight_overlap(item: dict[str, str], query: str) -> list[str]:
+    query_tokens = set(tokenize(query))
+    content_tokens = set(tokenize(f"{item['question']} {item['answer']}"))
+    return sorted(query_tokens & content_tokens)
