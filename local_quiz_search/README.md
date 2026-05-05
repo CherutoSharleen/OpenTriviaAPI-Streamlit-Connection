@@ -6,7 +6,7 @@ This mini application teaches retrieval fundamentals by searching a fictional qu
 
 - Loads local FAQ data from JSON.
 - Scores each FAQ item with BM25 against the query.
-- Returns top matches with answers.
+- Returns top matches with answers and matched terms.
 
 ## Concepts taught
 

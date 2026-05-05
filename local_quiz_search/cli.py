@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from bm25 import search_faq
+from bm25 import highlight_overlap, search_faq
 
 
 def main() -> None:
@@ -15,6 +15,9 @@ def main() -> None:
     for rank, (item, score) in enumerate(results, start=1):
         print(f"{rank}. {item['question']} | score={score:.4f}")
         print(f"   Answer: {item['answer']}")
+        overlap = highlight_overlap(item, query)
+        if overlap:
+            print(f"   Matched terms: {', '.join(overlap)}")
 
 
 if __name__ == "__main__":
