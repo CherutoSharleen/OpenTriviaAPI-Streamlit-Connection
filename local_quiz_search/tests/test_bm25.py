@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 import unittest
 
-from bm25 import highlight_overlap, search_faq
+from bm25 import highlight_overlap, normalized_query_terms, search_faq
 
 
 class BM25FaqTests(unittest.TestCase):
@@ -23,6 +23,10 @@ class BM25FaqTests(unittest.TestCase):
         data = json.loads((base / "faq.json").read_text(encoding="utf-8"))
         overlaps = highlight_overlap(data[0], "science trivia")
         self.assertIn("science", overlaps)
+
+    def test_normalized_query_terms(self) -> None:
+        terms = normalized_query_terms("science science trivia")
+        self.assertEqual(terms, ["science", "trivia"])
 
 
 if __name__ == "__main__":

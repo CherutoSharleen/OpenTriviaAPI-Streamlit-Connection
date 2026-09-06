@@ -59,3 +59,7 @@ def highlight_overlap(item: dict[str, str], query: str) -> list[str]:
     query_tokens = set(tokenize(query))
     content_tokens = set(tokenize(f"{item['question']} {item['answer']}"))
     return sorted(query_tokens & content_tokens)
+
+
+def normalized_query_terms(query: str) -> list[str]:
+    return sorted(set(tokenize(query)))
