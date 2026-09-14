@@ -63,3 +63,7 @@ def highlight_overlap(item: dict[str, str], query: str) -> list[str]:
 
 def normalized_query_terms(query: str) -> list[str]:
     return sorted(set(tokenize(query)))
+
+
+def top_questions_only(documents: list[dict[str, str]], query: str, top_k: int = 3) -> list[str]:
+    return [item["question"] for item, _ in search_faq(documents, query, top_k=top_k)]

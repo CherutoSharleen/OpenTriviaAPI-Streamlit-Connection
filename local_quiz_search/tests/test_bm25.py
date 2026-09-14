@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 import unittest
 
-from bm25 import highlight_overlap, normalized_query_terms, search_faq
+from bm25 import highlight_overlap, normalized_query_terms, search_faq, top_questions_only
 
 
 class BM25FaqTests(unittest.TestCase):
@@ -27,6 +27,12 @@ class BM25FaqTests(unittest.TestCase):
     def test_normalized_query_terms(self) -> None:
         terms = normalized_query_terms("science science trivia")
         self.assertEqual(terms, ["science", "trivia"])
+
+    def test_top_questions_only(self) -> None:
+        base = Path(__file__).resolve().parents[1]
+        data = json.loads((base / "faq.json").read_text(encoding="utf-8"))
+        questions = top_questions_only(data, "capitals", top_k=1)
+        self.assertEqual(len(questions), 1)
 
 
 if __name__ == "__main__":
