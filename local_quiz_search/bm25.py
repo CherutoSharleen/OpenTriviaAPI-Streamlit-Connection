@@ -67,3 +67,10 @@ def normalized_query_terms(query: str) -> list[str]:
 
 def top_questions_only(documents: list[dict[str, str]], query: str, top_k: int = 3) -> list[str]:
     return [item["question"] for item, _ in search_faq(documents, query, top_k=top_k)]
+
+
+def answer_preview(answer: str, max_words: int = 8) -> str:
+    words = answer.split()
+    if len(words) <= max_words:
+        return answer
+    return " ".join(words[:max_words]) + "..."

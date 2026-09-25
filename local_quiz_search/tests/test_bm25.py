@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 import unittest
 
-from bm25 import highlight_overlap, normalized_query_terms, search_faq, top_questions_only
+from bm25 import answer_preview, highlight_overlap, normalized_query_terms, search_faq, top_questions_only
 
 
 class BM25FaqTests(unittest.TestCase):
@@ -33,6 +33,10 @@ class BM25FaqTests(unittest.TestCase):
         data = json.loads((base / "faq.json").read_text(encoding="utf-8"))
         questions = top_questions_only(data, "capitals", top_k=1)
         self.assertEqual(len(questions), 1)
+
+    def test_answer_preview(self) -> None:
+        preview = answer_preview("one two three four five six seven eight nine", max_words=4)
+        self.assertEqual(preview, "one two three four...")
 
 
 if __name__ == "__main__":
