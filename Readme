@@ -21,3 +21,10 @@ Run its tests with:
 cd local_quiz_search
 python -m unittest discover -s tests -p "test_*.py"
 ```
+
+## Educational mini-project in this repository
+
+- **Path:** `local_quiz_search`
+- **Focus:** BM25-based local quiz FAQ retrieval with overlap and preview helpers.
+- **Run:** `cd local_quiz_search && python cli.py`
+- **Test:** `cd local_quiz_search && python -m unittest discover -s tests -p "test_*.py"`
